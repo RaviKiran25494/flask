@@ -1,0 +1,56 @@
+install scrapy--->pip install scrapy
+
+
+start project---->scrapy startproject projectname
+
+next-->open item.py file
+class ScrapyflaskItem(scrapy.Item):
+    title = Field()
+    link = Field()
+
+next-->create test.py 	in scrapy file
+in test.py 
+from scrapy.spider import BaseSprider
+from scrapy.selector import HtmlXPathSelector
+from Scrapyflask.items import ScrapyflaskItem
+
+class MySpider(BaseSprider):
+	"""docstring for ClassName"""
+	name='flipkart'
+	allowed_domains=['flipkart.com']
+	start_urls=['https://www.flipkart.com/']
+
+
+	def parse(self, response):
+		hxs=HtmlXPathSelector(response)
+		titles=hxs.select("//p")
+		items=[]
+		for titles in titles:
+			item=ScrapyflaskItem()
+			item["title"]=titles.select('a/text()').extract()
+			item["link"]=titles.select('a/@href').extract()
+			item.append(item)
+		return items
+cd -->projectfile
+
+
+scrapy crawl flipkart(name="flipkart" in scrider/test.py)
+error->>'win32api'
+pip install pypiwin32
+
+story___>>>scrapy crawl flipkart -o items.csv -t csv
+
+
+hxs.select(//div).extract()----> it will shows all div in html page
+
+9:30-10:30 Had taken python class in absent of trainer(chakri)
+10:30-1:00 I supported python student.
+Daily updates on python students and trainers on trello board.
+2:00-5:00 started working on flask framework.
+5:00-6:30 took presentation on python for fulltime students 
+6:30-7:30 worked on flask framework.
+
+collected student feedback forms regarding python classes and update trello.
+created a weekly report for python students.
+
+created a weekly report for python trainers depending on their timeings and update trello.

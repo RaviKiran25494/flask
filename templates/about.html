@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="jumbotron text-center">
+	<h1>ABOUT us</h1>
+	<p class="lead">GOOD ONE.....</p>
+</div>
+<div class="jumbotron text-center">
+	<h1>users</h1>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+</style>
+	<center><table style="width:70%">
+  <tr>
+  	<th><center>ID</center></th>
+    <th><center>NAME</center></th> 
+    <th><center>EMAIL</center></th>
+    <th><center>UPDATE</center></th>
+    <th><center>DELECT</center></th>
+  </tr>
+  {% for x in rv%}
+  <tr>
+  	<td><center>{{x.id}}</center></td>
+    <td><center>{{x.name}}</center></td>
+    <td><center>{{x.email}}</center></td>
+    <!-- <td><center>{{x.password}}</center></td> -->
+    <th><center><button><a class="btn btn-success" href='/updateprofile?id={{x.id}}'>EditProfile</a></button></center></th>
+    <th><center><button><a class="btn btn-danger" href='/deleteprofile?id={{x.id}}'>DELETE</a></button></center></th>
+    <!-- <th><center><button type="submit" class="btn btn-danger">DELECT</button></center></th> -->
+  </tr>
+  {% endfor %}
+</table></center>
+</div>
+
+{% endblock %}

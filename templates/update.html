@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<form action="/updateprofile12" method='put'>
+<br><br> 
+name:<input type="text" name='name' value="{{ person['name'] }}"><br><br>
+email:<input type="text" name='email' value="{{ person['email'] }}"><br><br>
+ <input type="submit" name='submit' value='submit'> 
+</form>
+
+{% endblock %}

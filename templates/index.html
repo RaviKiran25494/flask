@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="jumbotron text-center">
+	<h1>users</h1>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+</style>
+	<center><table style="width:70%">
+  <tr>
+    <center><th>ID</th></center>
+    <center><th>NAME</th></center> 
+    <center><th>PWS</th></center>
+    <center><th>UPDATE</th></center>
+    <center><th>DELECT</th></center>
+  </tr>
+  {% for x in rv%}
+  <tr>
+    <center><td>{{x.id}}</td></center>
+    <center><td>{{x.name}}</td></center> 
+    <center><td>{{x.password}}</td></center>
+    <center><th><button type="submit" class="btn btn-primary">UPDATE</button></th></center>
+    <center><th><button type="submit" class="btn btn-primary">DELECT</button></th></center>
+  </tr>
+  {% endfor %}
+</table></center>
+</div>
+
+
+{% endblock %}

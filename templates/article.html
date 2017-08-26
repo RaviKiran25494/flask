@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="jumbotron text-center">
+	<h1>Articles</h1>
+	<ul>
+	{% for article in articles %}
+	{% endfor %}
+		<li><a hef='articles/{{article.title}}'>{{ article.title }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}
